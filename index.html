@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cinematic video editing, motion design and visual storytelling portfolio.">
+  <title>Sinan — Video Editor & Visual Artist</title>
+  <style>
+    :root {
+      --bg: #08090b; --panel: #111317; --text: #f4f2ed; --muted: #9a9da5;
+      --line: rgba(255,255,255,.12); --accent: #c8ff3d;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, Arial, sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 44px)); margin: auto; }
+    nav { display:flex; align-items:center; justify-content:space-between; padding:25px 0; border-bottom:1px solid var(--line); }
+    .logo { font-size:14px; font-weight:800; letter-spacing:.16em; }
+    .logo span { color:var(--accent); }
+    .navlinks { display:flex; gap:28px; color:var(--muted); font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
+    .navlinks a:hover, .textlink:hover { color:var(--accent); }
+    .hero { min-height:690px; display:flex; flex-direction:column; justify-content:center; padding:90px 0 80px; position:relative; overflow:hidden; }
+    .hero:after { content:""; position:absolute; width:520px; height:520px; right:-100px; top:80px; background:radial-gradient(circle,rgba(200,255,61,.11),transparent 68%); pointer-events:none; }
+    .eyebrow { color:var(--accent); font-size:11px; letter-spacing:.22em; text-transform:uppercase; margin-bottom:24px; }
+    h1 { font-size:clamp(54px, 9vw, 118px); line-height:.91; letter-spacing:-.075em; max-width:900px; margin:0; font-weight:800; position:relative; z-index:1; }
+    h1 em { color:var(--muted); font-style:normal; }
+    .hero-bottom { display:flex; align-items:end; justify-content:space-between; gap:30px; margin-top:55px; position:relative; z-index:1; }
+    .intro { color:var(--muted); line-height:1.7; max-width:420px; font-size:15px; }
+    .button { display:inline-flex; align-items:center; gap:12px; background:var(--accent); color:#090a0b; padding:16px 21px; border-radius:2px; font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; transition:.2s; }
+    .button:hover { transform:translateY(-3px); }
+    section { padding:90px 0; border-top:1px solid var(--line); }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:20px; margin-bottom:34px; }
+    .kicker { color:var(--accent); font-size:10px; letter-spacing:.2em; text-transform:uppercase; }
+    h2 { font-size:clamp(34px,5vw,58px); letter-spacing:-.06em; margin:10px 0 0; }
+    .sub { color:var(--muted); font-size:13px; line-height:1.6; max-width:340px; }
+    .reel { aspect-ratio:16/9; background:linear-gradient(135deg,#22262d,#090a0c 60%,#263021); border:1px solid var(--line); display:grid; place-items:center; position:relative; overflow:hidden; }
+    .reel:before { content:""; position:absolute; inset:0; background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.08),transparent 65%); transform:skewX(-18deg) translateX(-80%); animation:shine 7s infinite; }
+    @keyframes shine { 50%,100% { transform:skewX(-18deg) translateX(120%); } }
+    .play { width:72px; height:72px; border:1px solid rgba(255,255,255,.6); border-radius:50%; display:grid; place-items:center; font-size:21px; padding-left:4px; }
+    .reel-label { position:absolute; bottom:22px; left:24px; font-size:10px; letter-spacing:.18em; color:#d4d5d6; text-transform:uppercase; }
+    .grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+    .project { display:block; }
+    .thumb { aspect-ratio:16/10; background:linear-gradient(140deg,#242a30,#101215 55%,#4a3a2a); position:relative; overflow:hidden; border:1px solid var(--line); }
+    .project:nth-child(2) .thumb { background:linear-gradient(140deg,#17252a,#080b0d 60%,#6a4b35); }
+    .project:nth-child(3) .thumb { background:linear-gradient(140deg,#30302a,#111 55%,#3c424b); }
+    .project:nth-child(4) .thumb { background:linear-gradient(140deg,#26202e,#090a0c 55%,#3b4b43); }
+    .thumb:after { content:""; position:absolute; inset:15% -10%; border:1px solid rgba(255,255,255,.13); transform:rotate(-13deg); }
+    .thumb span { position:absolute; left:20px; bottom:18px; color:rgba(255,255,255,.8); font-size:10px; letter-spacing:.2em; text-transform:uppercase; }
+    .project-meta { display:flex; justify-content:space-between; gap:12px; padding:15px 1px 8px; }
+    .project-meta strong { font-size:16px; }
+    .project-meta small { color:var(--muted); font-size:11px; }
+    .project:hover .thumb { filter:brightness(1.2); }
+    .about-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:70px; }
+    .about-copy { font-size:clamp(22px,3vw,34px); line-height:1.35; letter-spacing:-.035em; }
+    .about-copy span { color:var(--muted); }
+    .services { border-top:1px solid var(--line); }
+    .service { display:flex; justify-content:space-between; gap:20px; padding:21px 0; border-bottom:1px solid var(--line); font-size:18px; }
+    .service small { color:var(--muted); font-size:11px; letter-spacing:.12em; }
+    .contact { padding:110px 0 70px; }
+    .contact h2 { font-size:clamp(48px,8vw,100px); line-height:.95; max-width:850px; }
+    .contact-row { display:flex; justify-content:space-between; align-items:end; gap:25px; margin-top:40px; }
+    footer { border-top:1px solid var(--line); padding:22px 0; display:flex; justify-content:space-between; color:var(--muted); font-size:11px; letter-spacing:.08em; }
+    .socials { display:flex; gap:20px; }
+    @media(max-width:700px) {
+      .wrap { width:min(var(--max),calc(100% - 30px)); }
+      .navlinks { gap:13px; font-size:9px; }
+      .hero { min-height:620px; padding:70px 0; }
+      .hero-bottom,.section-head,.contact-row { align-items:flex-start; flex-direction:column; }
+      section { padding:65px 0; }
+      .grid,.about-grid { grid-template-columns:1fr; gap:25px; }
+      .about-grid { gap:35px; }
+      .contact { padding:80px 0 55px; }
+      footer { flex-direction:column; gap:14px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <nav>
+      <a class="logo" href="#">SINAN<span>AKV</span>®</a>
+      <div class="navlinks">
+        <a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section class="hero" style="border:0">
+        <div class="eyebrow">Independent Video Editor · Motion & Visuals</div>
+        <h1>IMAGES THAT<br><em>FEEL LIKE</em><br>CINEMA.</h1>
+        <div class="hero-bottom">
+          <p class="intro">I’m Sinan — a video editor creating cinematic stories through rhythm, colour and detail. Based in Kerala · Available worldwide.</p>
+          <a class="button" href="#work">Explore selected work ↗</a>
+        </div>
+      </section>
+
+      <section id="showreel">
+        <div class="section-head">
+          <div><div class="kicker">01 / Showreel</div><h2>Selected moments.</h2></div>
+          <p class="sub">Replace this panel with your showreel video embed or a link to your best edit.</p>
+        </div>
+        <a class="reel" href="https://www.youtube.com/" target="_blank" rel="noreferrer" aria-label="Open showreel link">
+          <div class="play">▶</div><div class="reel-label">Your showreel · 2026</div>
+        </a>
+      </section>
+
+      <section id="work">
+        <div class="section-head">
+          <div><div class="kicker">02 / Portfolio</div><h2>Selected work.</h2></div>
+          <p class="sub">A selection of edits, films and visual experiments. Replace the sample tiles with your own project thumbnails.</p>
+        </div>
+        <div class="grid">
+          <a class="project" href="#" target="_blank"><div class="thumb"><span>01 / Commercial</span></div><div class="project-meta"><strong>Project One</strong><small>Brand Film · 2026 ↗</small></div></a>
+          <a class="project" href="#" target="_blank"><div class="thumb"><span>02 / Event Film</span></div><div class="project-meta"><strong>Project Two</strong><small>Event Highlight · 2026 ↗</small></div></a>
+          <a class="project" href="#" target="_blank"><div class="thumb"><span>03 / Social</span></div><div class="project-meta"><strong>Project Three</strong><small>Reel Edit · 2026 ↗</small></div></a>
+          <a class="project" href="#" target="_blank"><div class="thumb"><span>04 / Motion</span></div><div class="project-meta"><strong>Project Four</strong><small>Motion Design · 2026 ↗</small></div></a>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="section-head"><div><div class="kicker">03 / About</div><h2>Behind the frames.</h2></div></div>
+        <div class="about-grid">
+          <div class="about-copy">I’m a video editor focused on <span>cinematic storytelling, clean pacing and strong visual identity.</span> Every frame has a purpose.</div>
+          <div>
+            <p class="sub">I work across short-form content, event films, brand videos and motion-led edits. My goal is to make every project feel intentional, polished and memorable.</p>
+            <div class="services">
+              <div class="service"><span>Video Editing</span><small>01</small></div>
+              <div class="service"><span>Colour & Finishing</span><small>02</small></div>
+              <div class="service"><span>Motion Graphics</span><small>03</small></div>
+              <div class="service"><span>Social Content</span><small>04</small></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <div class="kicker">04 / Contact</div>
+        <h2>Have a story<br>to tell? <em>Let’s make it.</em></h2>
+        <div class="contact-row">
+          <p class="intro">For projects, collaborations or freelance enquiries, get in touch.</p>
+          <a class="button" href="mailto:sinanakv125@gmail.com">Email me ↗</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="wrap">
+    <span>© 2026 SINAN · ALL RIGHTS RESERVED</span>
+    <div class="socials"><a href="https://www.instagram.com/syiinannnnn/" target="_blank" rel="noreferrer">@syiinannnnn ↗</a><a href="https://behance.net/" target="_blank" rel="noreferrer">BEHANCE ↗</a></div>
+  </footer>
+</body>
+</html>
